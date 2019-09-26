@@ -13,19 +13,24 @@ class MinHeap
     @store = []
   end
 
-  # This method adds a HeapNode instance to the heap
-  # Time Complexity: ?
-  # Space Complexity: ?
+  # Time Complexity: ? TODO: Answer this.
+  # Space Complexity: ? TODO: Answer this. It's done in place.
   def add(key, value = key)
-    raise NotImplementedError, "Method not implemented yet..."
+    node = HeapNode.new(key, value)
+    @store.push(node)
+    heap_up(@store.length - 1)
   end
 
-  # This method removes and returns an element from the heap
-  #   maintaining the heap structure
-  # Time Complexity: ?
-  # Space Complexity: ?
+  # Time Complexity: TODO: Answer this.
+  # Space Complexity: TODO: Answer this. It's done in place.
   def remove()
-    raise NotImplementedError, "Method not implemented yet..."
+    return nil if !@store
+
+    swap(0, @store.length - 1)
+    nope = @store.pop
+
+    heap_down(0)
+    return nope.value
   end
 
 
@@ -39,36 +44,49 @@ class MinHeap
     end
 
     output += @store.last.value + "]"
-      
+
     return output
   end
 
-  # This method returns true if the heap is empty
-  # Time complexity: ?
-  # Space complexity: ?
+  # Time complexity: Exceedingly fast.
+  # Space complexity: One bit.
   def empty?
-    raise NotImplementedError, "Method not implemented yet..."
+    !@store
   end
 
   private
 
-  # This helper method takes an index and
-  #  moves it up the heap, if it is less than it's parent node.
-  #  It could be **very** helpful for the add method.
-  # Time complexity: ?
-  # Space complexity: ?
-  def heap_up(index)
-    
+  # Time complexity: TODO: Answer this.
+  # Space complexity: TODO: Compares all the things one after another. Swapper stores wee variables.
+  def heap_up(i)
+    return if i == 0
+
+    pnode = (i-1) / 2
+    if @store[i].key < @store[pnode].key
+      swap(i, pnode)
+      heap_up(pnode)
+    end
   end
 
-  # This helper method takes an index and 
-  #  moves it up the heap if it's smaller
-  #  than it's parent node.
-  def heap_down(index)
-    raise NotImplementedError, "Method not implemented yet..."
+  def heap_down(i)
+    li = i*2+1
+    ri = i*2+2
+
+    if ri < @store.length
+
+      min = @store[li].key < @store[ri].key ? li : ri
+
+      if @store[i].key > @store[min].key
+        swap(i, min)
+        heap_down(min)
+      end
+    elsif li < @store.length
+      if @store[i].key > @store[li].key
+        swap(i, li)
+      end
+    end
   end
 
-  # If you want a swap method... you're welcome
   def swap(index_1, index_2)
     temp = @store[index_1]
     @store[index_1] = @store[index_2]
