@@ -21,7 +21,7 @@ class MinHeap
     heap_up(@store.length - 1)
   end
 
-  # Time Complexity: TODO: Answer this.
+  # Time Complexity: O(log n)
   # Space Complexity: O(n)
   def remove()
     return nil if !@store
@@ -56,7 +56,7 @@ class MinHeap
 
   private
 
-  # Time complexity: TODO: Answer this.
+  # Time complexity: O(log n)
   # Space complexity: O(n)
   def heap_up(i)
     return if i == 0
