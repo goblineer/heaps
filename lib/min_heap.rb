@@ -13,16 +13,16 @@ class MinHeap
     @store = []
   end
 
-  # Time Complexity: ? TODO: Answer this.
-  # Space Complexity: ? TODO: Answer this. It's done in place.
+  # Time Complexity: ? O(log n)
+  # Space Complexity: ? O(n)
   def add(key, value = key)
     node = HeapNode.new(key, value)
-    @store.push(node)
+    @store << node
     heap_up(@store.length - 1)
   end
 
   # Time Complexity: TODO: Answer this.
-  # Space Complexity: TODO: Answer this. It's done in place.
+  # Space Complexity: O(n)
   def remove()
     return nil if !@store
 
@@ -49,7 +49,7 @@ class MinHeap
   end
 
   # Time complexity: Exceedingly fast.
-  # Space complexity: One bit.
+  # Space complexity: Literally one bit.
   def empty?
     !@store
   end
@@ -57,7 +57,7 @@ class MinHeap
   private
 
   # Time complexity: TODO: Answer this.
-  # Space complexity: TODO: Compares all the things one after another. Swapper stores wee variables.
+  # Space complexity: O(n)
   def heap_up(i)
     return if i == 0
 

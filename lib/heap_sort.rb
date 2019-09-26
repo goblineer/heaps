@@ -1,8 +1,5 @@
-
-
-# This method passes the test. I suspect that means it's using a heap to sort an array.
 # Time Complexity: O(nlog(n))
-# Space Complexity: All the good stuff happens in place.
+# Space Complexity: Constant.
 def heapsort(vault)
   hoard = MinHeap.new
 
