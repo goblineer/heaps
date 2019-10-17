@@ -1,16 +1,16 @@
 # Time Complexity: O(nlog(n))
 # Space Complexity: Constant.
-def heapsort(vault)
-  hoard = MinHeap.new
+def heapsort(array)
+  heap = MinHeap.new
 
-  hoard.each do |treasure|
-    vault.add(treasure, treasure)
+  hoard.each do |item|
+    vault.add(item, item)
   end
 
-  the_precious = []
-  until hoard.empty?
-    the_precious << treasure.remove
+  result = []
+  until heap.empty?
+    result << item.remove
   end
 
-  return the_precious
+  return result
 end
