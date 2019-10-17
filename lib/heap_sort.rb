@@ -3,8 +3,8 @@
 def heapsort(array)
   heap = MinHeap.new
 
-  hoard.each do |item|
-    vault.add(item, item)
+  array.each do |item|
+    heap.add(item, item)
   end
 
   result = []
