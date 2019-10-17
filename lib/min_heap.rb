@@ -14,7 +14,7 @@ class MinHeap
   end
 
   # Time Complexity: ? O(log n)
-  # Space Complexity: ? O(nm)
+  # Space Complexity: ? O(log n))
   def add(key, value = key)
     node = HeapNode.new(key, value)
     @store << node
@@ -22,7 +22,7 @@ class MinHeap
   end
 
   # Time Complexity: O(log n)
-  # Space Complexity: Already have all the space we need.
+  # Space Complexity: O(log n)
   def remove()
     return nil if !@store
 
@@ -48,8 +48,8 @@ class MinHeap
     return output
   end
 
-  # Time complexity: Exceedingly fast.
-  # Space complexity: Literally one bit.
+  # Time complexity: O(1)
+  # Space complexity: O(1)
   def empty?
     !@store
   end
@@ -57,7 +57,7 @@ class MinHeap
   private
 
   # Time complexity: O(log n)
-  # Space complexity: O(nm)
+  # Space complexity: Log n
   def heap_up(i)
     return if i == 0
 
